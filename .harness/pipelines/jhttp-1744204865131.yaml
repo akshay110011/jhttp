@@ -23,6 +23,7 @@ pipeline:
                   type: Run
                   identifier: build_java_app
                   name: Build Java App
+                  image: alpine:latest
                   spec:
                     shell: Sh
                     command: |-
