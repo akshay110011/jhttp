@@ -29,9 +29,9 @@ pipeline:
                       echo "Welcome to Harness CI"
                       mvn -B package --file pom.xml
           platform:
-            arch: Amd64
             os: MacOS
+            arch: Arm64
           runtime:
+            type: Cloud
             spec: {}
-            type: Docker
         type: CI
