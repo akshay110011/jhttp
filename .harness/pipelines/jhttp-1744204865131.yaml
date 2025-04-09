@@ -33,7 +33,7 @@ pipeline:
                   name: docker_build
                   spec:
                     caching: true
-                    connectorRef: harnessDockerProjectLevel
+                    connectorRef: dockerAK
                     repo: hello/world
                     tags:
                       - latest
