@@ -24,6 +24,8 @@ pipeline:
                   identifier: build_java_app
                   name: Build Java App
                   spec:
+                    connectorRef: account.harnessImage
+                    image: alpine:latest
                     shell: Sh
                     command: |-
                       echo "Welcome to Harness CI"
@@ -39,10 +41,12 @@ pipeline:
                       - latest
                   timeout: ""
                   type: BuildAndPushDockerRegistry
-          platform:
-            arch: Amd64
-            os: MacOS
-          runtime:
-            spec: {}
-            type: Docker
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.k8sLocal
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
         type: CI
