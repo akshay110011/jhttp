@@ -41,10 +41,16 @@ pipeline:
                       spec:
                         paths:
                           - target/surefire-reports/*.xml
+              - step:
+                  name: Template Use
+                  identifier: Template_Use
+                  template:
+                    templateRef: AK_2_Step_Template
+                    versionLabel: "1"
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
