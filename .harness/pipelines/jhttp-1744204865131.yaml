@@ -40,7 +40,7 @@ pipeline:
                       type: JUnit
                       spec:
                         paths:
-                          - target/surefire-reports/*.xml
+                          - target/surefire-reports/**/*.xml
               - step:
                   name: Template Use
                   identifier: Template_Use
@@ -55,7 +55,7 @@ pipeline:
                     connectorRef: dockerAK
                     repo: akshay110011/jhttp
                     tags:
-                      - latest
+                      - 1.<+pipeline.sequenceId>
                   timeout: ""
                   type: BuildAndPushDockerRegistry
           platform:
